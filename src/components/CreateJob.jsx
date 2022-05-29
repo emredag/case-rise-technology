@@ -34,32 +34,6 @@ function CreateJob() {
 	};
 
 
-	// const editTodo = (id) => {
-
-	// 	const data = allJobs.filter(job => job.id === id);
-
-	// 	data[0].name = "emre";
-
-
-	// 	const ayniolmayan = allJobs.filter(job => job.id !== id);
-
-	// 	const newData = [...data, ...ayniolmayan];
-
-	// 	setAllJobs(newData);
-
-	// 	localStorage.setItem("jobs", JSON.stringify(newData));
-
-	// 	console.log(data);
-
-		
-	// };
-
-	
-
-
-
-
-
 	return (<>
 		<div className="add-job-title"><h2>Create New Job</h2></div>
 		<div className="create-job">
@@ -101,9 +75,9 @@ function CreateJob() {
 									onChange={handleChange}>
                                         
 									<option label="Choose" disabled/>
-									<option label="Urgent" value="urgent"/>
-									<option label="Regular" value="regular"/>
-									<option label="Trivial" value="trivial"/>
+									<option label="Urgent" value="Urgent"/>
+									<option label="Regular" value="Regular"/>
+									<option label="Trivial" value="Trivial"/>
 								</select>
 							</div>
 
@@ -122,11 +96,7 @@ function CreateJob() {
 
             
 
-			{/* {allJobs.map((item,index) => {
-				return (
-					<div onClick={() => {editTodo(item.id);}} key={index}>{item.name} | {item.category} | {item.id}</div>
-				);
-			})} */}
+		
 
 		</div>
 

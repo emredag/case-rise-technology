@@ -8,6 +8,11 @@ const JobContext = createContext();
 export const JobProvider = ({ children }) => {
 
 	const [allJobs, setAllJobs] = useState([]);
+	const [deleteModal, setDeleteModal] = useState(false);
+	const [editModal, setEditModal] = useState(false);
+	const [todoId, setTodoId] = useState();
+	const [todoName, setTodoName] = useState();
+	const [todoCategory, setTodoCategory] = useState();
 
 	useEffect(() => {
 
@@ -20,7 +25,7 @@ export const JobProvider = ({ children }) => {
 
 
 	const values = {
-		allJobs, setAllJobs
+		allJobs, setAllJobs, deleteModal, setDeleteModal, editModal, setEditModal, todoId, setTodoId, todoCategory, setTodoCategory, todoName, setTodoName
 	};
 
 	return <JobContext.Provider value={values}>{children}</JobContext.Provider>;

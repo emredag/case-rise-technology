@@ -5,9 +5,12 @@ import "./styles/reset.scss";
 import { JobProvider } from "./contexts/JobContext";
 
 
-function App() {
-	return (
 
+function App() {
+
+
+
+	return (
 		<>
 			<JobProvider>
 				<IndexPage />
