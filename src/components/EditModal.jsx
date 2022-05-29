@@ -3,8 +3,16 @@ import React, { useContext, useState } from "react";
 import JobContext from "../contexts/JobContext";
 
 function EditModal() {
-	const { allJobs, setAllJobs, editModal, setEditModal, todoName, todoCategory, todoId } =
-		useContext(JobContext);
+	const {
+		allJobs,
+		setAllJobs,
+		editModal,
+		setEditModal,
+		todoName,
+		todoCategory,
+		todoId,
+		allCategory,
+	} = useContext(JobContext);
 
 	const [editedCategory, setEditedCategory] = useState();
 
@@ -52,23 +60,16 @@ function EditModal() {
 								setEditedCategory(e.target.value);
 							}}
 						>
-							<option
-								value="Urgent"
-								label="Urgent"
-								selected={todoCategory === "Urgent"}
-							/>
-
-							<option
-								value="Regular"
-								label="Regular"
-								selected={todoCategory === "Regular"}
-							/>
-
-							<option
-								value="Trivial"
-								label="Trivial"
-								selected={todoCategory === "Trivial"}
-							/>
+							{allCategory.map((item, index) => {
+								return (
+									<option
+										key={index}
+										value={item.job_name}
+										label={item.job_name}
+										selected={todoCategory === item.job_name}
+									/>
+								);
+							})}
 						</select>
 					</div>
 
