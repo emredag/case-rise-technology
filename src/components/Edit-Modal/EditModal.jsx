@@ -12,7 +12,7 @@ function EditModal() {
 		todoCategory,
 		todoId,
 		allCategory,
-	} = useContext(JobContext);
+	} = useContext(JobContext) || {};
 
 	const [editedCategory, setEditedCategory] = useState();
 
@@ -36,61 +36,59 @@ function EditModal() {
 		setEditModal(!editModal);
 	};
 
-	return (
-		editModal && (
-			<>
-				<div className="overlay"></div>
+	return editModal ? (
+		<>
+			<div className="overlay"></div>
 
-				<div className="edit-modal">
-					<div className="edit-title">
-						<h2>Job Edit</h2>
-					</div>
-
-					<div className="job-name">
-						<p>Job Name</p>
-
-						<input className="name-box" type="text" placeholder={todoName} disabled />
-					</div>
-
-					<div className="job-priority">
-						<p>Job Priority</p>
-
-						<select
-							onChange={(e) => {
-								setEditedCategory(e.target.value);
-							}}
-						>
-							{allCategory.map((item, index) => {
-								return (
-									<option
-										key={index}
-										value={item.job_name}
-										label={item.job_name}
-										selected={todoCategory === item.job_name}
-									/>
-								);
-							})}
-						</select>
-					</div>
-
-					<div className="action">
-						<Button
-							className="cancel"
-							onClick={closeModal}
-							variant="contained"
-							color="error"
-						>
-							Cancel
-						</Button>
-
-						<Button className="save-todo" onClick={editTodo} variant="contained">
-							Save
-						</Button>
-					</div>
+			<div className="edit-modal">
+				<div className="edit-title">
+					<h2>Job Edit</h2>
 				</div>
-			</>
-		)
-	);
+
+				<div className="job-name">
+					<p>Job Name</p>
+
+					<input className="name-box" type="text" placeholder={todoName} disabled />
+				</div>
+
+				<div className="job-priority">
+					<p>Job Priority</p>
+
+					<select
+						onChange={(e) => {
+							setEditedCategory(e.target.value);
+						}}
+					>
+						{allCategory?.map((item, index) => {
+							return (
+								<option
+									key={index}
+									value={item.job_name}
+									label={item.job_name}
+									selected={todoCategory === item.job_name}
+								/>
+							);
+						})}
+					</select>
+				</div>
+
+				<div className="action">
+					<Button
+						className="cancel"
+						onClick={closeModal}
+						variant="contained"
+						color="error"
+					>
+						Cancel
+					</Button>
+
+					<Button className="save-todo" onClick={editTodo} variant="contained">
+						Save
+					</Button>
+				</div>
+			</div>
+		</>
+	) : null;
 }
 
 export default EditModal;

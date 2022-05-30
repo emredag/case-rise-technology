@@ -10,7 +10,7 @@ function JobList() {
 		setSortByPriority,
 		sortByJobName,
 		setSortByJobName,
-	} = useContext(JobContext);
+	} = useContext(JobContext) || {};
 
 	const [search, setSearch] = useState("");
 	const [currentCategory, setCurrentCategory] = useState("All");
@@ -34,7 +34,7 @@ function JobList() {
 						}}
 					>
 						<option label="Priority (all)" value="All" />
-						{allCategory.map((item, index) => {
+						{allCategory?.map((item, index) => {
 							return (
 								<option key={index} value={item.job_name} label={item.job_name} />
 							);
@@ -64,9 +64,9 @@ function JobList() {
 					<div className="action">Action</div>
 				</div>
 
-				<div className="job-list-items">
+				<ul className="job-list-items">
 					{allJobs
-						.filter((item) => {
+						?.filter((item) => {
 							if (search == "") {
 								return item;
 							} else if (item.name.toLowerCase().includes(search.toLowerCase())) {
@@ -80,7 +80,7 @@ function JobList() {
 								return <JobsItem item={item} index={index} />;
 							}
 						})}
-				</div>
+				</ul>
 			</div>
 		</>
 	);

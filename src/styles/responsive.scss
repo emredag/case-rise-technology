@@ -1,0 +1,108 @@
+@media screen and (max-width: 768px) {
+	body {
+		font-size: 10px !important;
+	}
+
+	.index-page {
+		height: auto !important;
+		padding: 0 2rem;
+	}
+
+	.header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		padding: 0;
+		margin-top: 1rem;
+
+		img {
+			padding-bottom: 1rem;
+			width: 80%;
+		}
+	}
+
+	.add-job-title {
+		margin-top: 2rem;
+		text-align: center;
+	}
+
+	.create-job {
+		margin-top: 1rem;
+
+		.form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			.job-name,
+			.job-priority,
+			.submit-btn {
+				width: 100%;
+			}
+		}
+	}
+
+	.job-list {
+		margin-bottom: 4rem;
+		.job-search {
+			flex-direction: column;
+			justify-content: center;
+			gap: 1rem;
+
+			.search-input {
+				width: 100%;
+			}
+
+			.select-category {
+				width: 100%;
+			}
+		}
+
+		.job-list-titles {
+			.name {
+				width: 60%;
+			}
+
+			.priority {
+				width: 20%;
+			}
+
+			.action {
+				width: 20%;
+			}
+		}
+
+		.job-list-items {
+			.items {
+				.name {
+					width: 60%;
+				}
+
+				.priority {
+					width: 20%;
+				}
+
+				.action {
+					width: 20%;
+
+					div {
+						width: 1rem;
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
+
+	.footer {
+		visibility: hidden;
+	}
+
+	.delete-modal,
+	.edit-modal {
+		width: 25rem;
+		text-align: center;
+	}
+}

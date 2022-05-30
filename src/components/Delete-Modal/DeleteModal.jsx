@@ -7,10 +7,11 @@ import { red } from "@mui/material/colors";
 import { Button } from "@mui/material";
 
 export default function DeleteModal() {
-	const { allJobs, setAllJobs, deleteModal, setDeleteModal, todoId } = useContext(JobContext);
+	const { allJobs, setAllJobs, deleteModal, setDeleteModal, todoId } =
+		useContext(JobContext) || {};
 
 	const deleteTodo = (id) => {
-		const notSame = allJobs.filter((job) => job.id !== id);
+		const notSame = allJobs?.filter((job) => job.id !== id);
 
 		const newData = [...notSame];
 
@@ -25,41 +26,39 @@ export default function DeleteModal() {
 		setDeleteModal(!deleteModal);
 	};
 
-	return (
-		deleteModal && (
-			<>
-				<div className="overlay"></div>
+	return deleteModal ? (
+		<>
+			<div className="overlay"></div>
 
-				<div className="delete-modal">
-					<div className="delete-text">
-						<div className="delete-icon">
-							<ErrorOutlineIcon fontSize="large" sx={{ color: red["A400"] }} />
-						</div>
-						<h2>Are you sure you want to delete this job?</h2>
+			<div className="delete-modal">
+				<div className="delete-text">
+					<div className="delete-icon">
+						<ErrorOutlineIcon fontSize="large" sx={{ color: red["A400"] }} />
 					</div>
-
-					<div className="delete-action">
-						<Button
-							className="cancel"
-							onClick={closeModal}
-							variant="contained"
-							color="error"
-						>
-							Cancel
-						</Button>
-
-						<Button
-							className="delete-button"
-							onClick={() => {
-								deleteTodo(todoId);
-							}}
-							variant="contained"
-						>
-							Approve
-						</Button>
-					</div>
+					<h2>Are you sure you want to delete this job?</h2>
 				</div>
-			</>
-		)
-	);
+
+				<div className="delete-action">
+					<Button
+						className="cancel"
+						onClick={closeModal}
+						variant="contained"
+						color="error"
+					>
+						Cancel
+					</Button>
+
+					<Button
+						className="delete-button"
+						onClick={() => {
+							deleteTodo(todoId);
+						}}
+						variant="contained"
+					>
+						Approve
+					</Button>
+				</div>
+			</div>
+		</>
+	) : null;
 }

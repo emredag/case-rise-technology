@@ -11,6 +11,15 @@
 		align-items: center;
 		gap: 2rem;
 
+		.error {
+			color: red;
+			border-color: red;
+
+			&::placeholder {
+				color: red;
+			}
+		}
+
 		.job-name {
 			display: flex;
 			flex-direction: column;

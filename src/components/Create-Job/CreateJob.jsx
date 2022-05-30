@@ -5,12 +5,12 @@ import JobContext from "../../contexts/JobContext";
 import Button from "@mui/material/Button";
 
 function CreateJob() {
-	const { allJobs, setAllJobs, allCategory } = useContext(JobContext);
+	const { allJobs, setAllJobs, allCategory } = useContext(JobContext) || {};
 
 	// *********** Yup Validation ***********
 	const validation = Yup.object({
-		name: Yup.string().max(255, "Max 255 characters").required("Ürün adı zorunlu"),
-		category: Yup.string().typeError("Katagori seçiniz").required("Katagori zorunlu"),
+		name: Yup.string().max(255, "Max 255 characters").required(""),
+		category: Yup.string().typeError("Select Category").required(""),
 	});
 	// **************************************
 
@@ -61,7 +61,7 @@ function CreateJob() {
 						}, 100);
 					}}
 				>
-					{({ values, handleChange, handleSubmit }) => (
+					{({ values, errors, handleChange, handleSubmit }) => (
 						<>
 							<form className="form" onSubmit={handleSubmit}>
 								<div className="job-name">
@@ -70,7 +70,9 @@ function CreateJob() {
 										type="text"
 										id="name"
 										name="name"
-										className="job-input"
+										placeholder="Enter job name"
+										data-testid={`create-input ${errors.name && "error"}`}
+										className={`job-input ${errors.name && "error"}`}
 										value={values.name}
 										onChange={handleChange}
 									/>
@@ -82,10 +84,11 @@ function CreateJob() {
 										name="category"
 										value={values.category}
 										onChange={handleChange}
+										className={errors.category && "error"}
 									>
-										<option label="Choose" disabled />
+										<option label="Choose" />
 
-										{allCategory.map((item, index) => {
+										{allCategory?.map((item, index) => {
 											return (
 												<option
 													key={index}
@@ -99,7 +102,11 @@ function CreateJob() {
 
 								<div className="submit-btn">
 									<label htmlFor="">x</label>
-									<Button type="submit" variant="contained">
+									<Button
+										data-testid="create-btn"
+										type="submit"
+										variant="contained"
+									>
 										Create
 									</Button>
 								</div>

@@ -15,14 +15,14 @@ function JobsItem(item, index) {
 		setTodoId,
 		setTodoName,
 		setTodoCategory,
-	} = useContext(JobContext);
+	} = useContext(JobContext) || {};
 
 	const priorityColor = (item) => {
-		if (item.category === "Urgent") {
+		if (item?.category === "Urgent") {
 			return "red";
-		} else if (item.category === "Regular") {
+		} else if (item?.category === "Regular") {
 			return "orange";
-		} else if (item.category === "Trivial") {
+		} else if (item?.category === "Trivial") {
 			return "blue";
 		}
 	};
@@ -41,16 +41,16 @@ function JobsItem(item, index) {
 
 	return (
 		<div className="items" key={index}>
-			<div className="name">{item.name}</div>
+			<div className="name">{item?.name}</div>
 
 			<div className={`${priorityColor(item)} priority`}>
-				<p>{item.category}</p>
+				<p>{item?.category}</p>
 			</div>
 
 			<div className="action">
 				<div
 					onClick={() => {
-						toggleEdit(item.id, item.name, item.category);
+						toggleEdit(item?.id, item?.name, item?.category);
 					}}
 				>
 					<EditRoundedIcon color="success" fontSize="large" />
@@ -58,7 +58,7 @@ function JobsItem(item, index) {
 
 				<div
 					onClick={() => {
-						toggleDelete(item.id);
+						toggleDelete(item?.id);
 					}}
 				>
 					<DeleteForeverRoundedIcon sx={{ color: red[700] }} fontSize="large" />
