@@ -1,10 +1,10 @@
 import React from "react";
-import CreateJob from "../components/CreateJob";
-import DeleteModal from "../components/DeleteModal";
-import EditModal from "../components/EditModal";
+import CreateJob from "../components/Create-Job";
+import DeleteModal from "../components/Delete-Modal";
+import EditModal from "../components/Edit-Modal";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import JobList from "../components/JobList";
+import JobList from "../components/Job-List/JobList";
 
 function IndexPage() {
 	return (

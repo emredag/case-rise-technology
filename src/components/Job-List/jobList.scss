@@ -1,0 +1,127 @@
+// Job List
+.job-list {
+	margin-top: 2rem;
+	border: 1px solid gray;
+	padding-bottom: 1rem;
+
+	.job-search {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #f1f4ff;
+		padding: 1rem;
+
+		.search-input {
+			width: 78%;
+			height: 2.5rem;
+		}
+
+		.select-category {
+			width: 20%;
+			height: 3rem;
+		}
+	}
+
+	.job-list-titles {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		color: rgb(80, 75, 75);
+		background-color: #e4eafd;
+
+		.name,
+		.priority,
+		.action {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 3rem;
+		}
+
+		.name {
+			cursor: pointer;
+			width: 70%;
+		}
+
+		.priority {
+			cursor: pointer;
+			width: 15%;
+		}
+
+		.action {
+			width: 15%;
+		}
+	}
+
+	.job-list-items {
+		.items {
+			display: flex;
+			margin-top: 1rem;
+			height: 4rem;
+			align-items: center;
+
+			.name,
+			.priority,
+			.action {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 3rem;
+			}
+
+			.name {
+				width: 70%;
+			}
+
+			.priority {
+				text-align: center;
+				width: 15%;
+				p {
+					border-radius: 0.8rem;
+					width: 6rem;
+					padding: 0.5rem;
+					color: white;
+				}
+			}
+
+			.action {
+				display: flex;
+				gap: 1.5rem;
+				width: 15%;
+
+				div {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 4rem;
+					height: 3.5rem;
+					background-color: #e8e8e8;
+					border-radius: 0.5rem;
+					cursor: pointer;
+				}
+			}
+
+			.red {
+				p {
+					background-color: #e83d6d;
+				}
+			}
+
+			.orange {
+				p {
+					background-color: #f1a824;
+				}
+			}
+
+			.blue {
+				p {
+					background-color: #2277e0;
+				}
+			}
+		}
+
+		.active {
+			background-color: #f9f9f9;
+		}
+	}
+}

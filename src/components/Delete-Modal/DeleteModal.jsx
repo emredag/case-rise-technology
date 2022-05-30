@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useContext } from "react";
-import JobContext from "../contexts/JobContext";
+import JobContext from "../../contexts/JobContext";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { red } from "@mui/material/colors";
 import { Button } from "@mui/material";
@@ -39,7 +39,12 @@ export default function DeleteModal() {
 					</div>
 
 					<div className="delete-action">
-						<Button className="cancel" onClick={closeModal} variant="contained">
+						<Button
+							className="cancel"
+							onClick={closeModal}
+							variant="contained"
+							color="error"
+						>
 							Cancel
 						</Button>
 
@@ -49,7 +54,6 @@ export default function DeleteModal() {
 								deleteTodo(todoId);
 							}}
 							variant="contained"
-							color="error"
 						>
 							Approve
 						</Button>

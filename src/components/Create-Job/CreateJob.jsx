@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React, { useContext } from "react";
 import * as Yup from "yup";
-import JobContext from "../contexts/JobContext";
+import JobContext from "../../contexts/JobContext";
 import Button from "@mui/material/Button";
 
 function CreateJob() {
@@ -15,7 +15,7 @@ function CreateJob() {
 	// **************************************
 
 	const addTodo = (values) => {
-		const newTodos = [values, ...allJobs];
+		const newTodos = [...allJobs, values];
 
 		setAllJobs(newTodos);
 
@@ -32,14 +32,26 @@ function CreateJob() {
 					initialValues={{
 						name: "",
 						category: "",
+						categoryId: "",
 						id: "",
 					}}
 					validationSchema={validation}
 					onSubmit={(values, { resetForm }) => {
+						let categoryId;
+
+						if (values.category === "Urgent") {
+							categoryId = 1;
+						} else if (values.category === "Regular") {
+							categoryId = 2;
+						} else if (values.category === "Trivial") {
+							categoryId = 3;
+						}
+
 						const data = {
 							name: values.name,
 							category: values.category,
 							id: allJobs.length + 1,
+							categoryId: categoryId,
 						};
 
 						addTodo(data);

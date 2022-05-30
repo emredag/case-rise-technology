@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useContext, useState } from "react";
-import JobContext from "../contexts/JobContext";
+import JobContext from "../../contexts/JobContext";
 
 function EditModal() {
 	const {
@@ -74,16 +74,16 @@ function EditModal() {
 					</div>
 
 					<div className="action">
-						<Button className="cancel" onClick={closeModal} variant="contained">
-							Cancel
-						</Button>
-
 						<Button
-							className="save-todo"
-							onClick={editTodo}
+							className="cancel"
+							onClick={closeModal}
 							variant="contained"
 							color="error"
 						>
+							Cancel
+						</Button>
+
+						<Button className="save-todo" onClick={editTodo} variant="contained">
 							Save
 						</Button>
 					</div>
