@@ -5,6 +5,9 @@
 ## Demo 
 https://risetech.emredag.com.tr/
 
+Server;
+REST API Url: https://risetechapi.emredag.com.tr/
+Github: https://github.com/emredag/job-tracking-app-server
 
 ## Projenin Amacı
 
