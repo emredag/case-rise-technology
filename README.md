@@ -8,7 +8,7 @@ https://risetech.emredag.com.tr/
 
 ## Projenin Amacı
 
-Projenin amacı ikinci el ürünleri almak veya satmak isteyen kişilerin kolay bir şekilde ürünlerini yayınlayabilmesi, dilerse de ürün satın almasıdır.
+Projenin amacı işlerini ekleyerek kullanıcının iş takibi yapması. Kullanıcı işlerin içerisinde arama yapabilir, isme veya işin önem derecesine göre sıralayabilir veya katagorileyebilir. 
 
 
 ## Proje Hakkında
@@ -33,7 +33,7 @@ Paketler: Toastify, MUI, Node-Sass, Formik, Yup
 
 - Toastify: Pop up için
  
-- MUI: Bazı butonlar için
+- MUI: Butonlar için
 
 - Node-Sass: Scss compiler için
 
@@ -49,7 +49,7 @@ Paketler: Toastify, MUI, Node-Sass, Formik, Yup
 Projeyi klonlayın
 
 ```bash
-  git clone https://github.com/emredag/e-commerce-app.git
+  git clone https://github.com/emredag/job-tracking-app-client.git
 ```
 
 Proje dizinine gidin
